@@ -89,6 +89,7 @@ public class JavaSem02 {
 		
 		//Exercise 8*
 		System.out.println("---- Exercise 8* ----");
+                executeStringEquation(inputEquation);
 //		JavaSem02.executeStringEquation(inputEquation);
 
                 //Exercise 9*
@@ -308,20 +309,22 @@ public class JavaSem02 {
 			}
 	//Exercise7
 			static String pascalsTriangle(int level){
-			String result = "[";
+			
+                        
+                            
+                        String result = "[";
 			int n = level;
 			int r = n + 1;
                         int tempResult;
 			
 			for (int i = 0; i <= r; i++) {
                             
-                                tempResult = (factorialForLoop(n))/((factorialForLoop(r))*(factorialForLoop(n-r)));
-                                System.out.println(tempResult);
+                                tempResult = (factorialForLoop(n))/((factorialForLoop(r))*(factorialForLoop(n-r)));                              
                                     if(i == r - 1){
-                                            result+=tempResult+", ";
+                                            result += tempResult+", ";
                                     }
                                     else {
-                                            result+="]";
+                                            result += "]";
                                     }
                             
                         }
@@ -355,9 +358,10 @@ public class JavaSem02 {
 				
 				char[] operators = new char[inputEquation.length()];
 				for (int i = 0; i < operators.length; i++) {
-					System.out.print(i + " ");
+					System.out.print(operators[i] + " ");
 				}
 				
+                                System.out.println("\n");
 				return result;
 			}
 	
