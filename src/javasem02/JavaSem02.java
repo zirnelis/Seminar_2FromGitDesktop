@@ -56,6 +56,7 @@ public class JavaSem02 {
 		//Exercise 2 
 		System.out.println("---- Exercise 2 ----");
                 System.out.println("Factorial of 5 = "+factorialForLoop(5));
+                System.out.println("FacRec of 5 = "+factorialRecursive(5));
                 
 		System.out.println("---- Exercise 3 ----");
 		System.out.println("newArray: ");
@@ -84,7 +85,7 @@ public class JavaSem02 {
 		
 		//Exercise 7
 		System.out.println("---- Exercise 7 ----");
-		pascalTriangle = pascalsTriangle(5);
+		pascalTriangle = pascalsTriangle(6);
 		System.out.println(pascalTriangle);
 		
 		//Exercise 8*
@@ -274,6 +275,7 @@ public class JavaSem02 {
 			
 	//Part 2
 			static int[] rollDice(int N) {
+                            System.out.println("Roll Dice");
 				int[] roll = new int[N];
 				for (int i = 0; i < N; i++) {
 					roll[i] = (int)(Math.random()*6+1);
@@ -285,6 +287,7 @@ public class JavaSem02 {
 	//Part 3
 	//Roll until both dices are 6, output the number of tries.
 			static int roll2Dices() {
+                            System.out.println("Roll 2 Dices");
 				int tries = 0;
 				int dice1 = 0;
 				int dice2 = 0;
@@ -319,10 +322,16 @@ public class JavaSem02 {
 			
 			for (int i = 0; i <= r; i++) {
                             
-                                tempResult = (factorialForLoop(n))/((factorialForLoop(r))*(factorialForLoop(n-r)));                              
-                                    if(i == r - 1){
-                                            result += tempResult+", ";
-                                    }
+                                tempResult = (factorialForLoop(n))/((factorialForLoop(i))*(factorialForLoop(n-i)));    
+                                
+                                    if(i != r ){
+                                            
+                                            if(i == r - 1) {
+                                                result += tempResult+" ";
+                                            } else {
+                                                result += tempResult+", ";
+                                            }
+                                    } 
                                     else {
                                             result += "]";
                                     }
