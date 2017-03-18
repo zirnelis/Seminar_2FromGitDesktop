@@ -1,18 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Elina Kuzmina    
+ * 3 IT
+ * Java seminars nr.2
  */
 package javasem02;
-//import java.awt.BufferCapabilities.FlipContents;
-//import java.lang.reflect.Array;
 import java.util.Random;
 import java.util.ArrayList;
-//import java.lang.Math;
-
-//import javax.swing.text.Position;
 /**
- *
  * @author Elina Kuzmina
  */
 public class JavaSem02 {
@@ -48,6 +42,7 @@ public class JavaSem02 {
 		String pascalTriangle = " ";
 		//8*
 		String inputEquation = "1 - 3 * 18 / 4 + 2";
+                double result = 0.0;
 		
                 //Exercise 1
 		finalPosition = positionCalc(gravity, initialVelocity, initialPosition, fallingTime);
@@ -65,7 +60,6 @@ public class JavaSem02 {
 		}
 		
 		System.out.println("---- Exercise 4 ----");
-		/*Nesanak nogeneret elementus*/
 		generatedMatrix = generateMatrix(5);
 		System.out.println("\nIzgust 1 rindas 5 kolonnas elementu: "+getProduct(generatedMatrix, 0, 4));
 		
@@ -90,8 +84,9 @@ public class JavaSem02 {
 		
 		//Exercise 8*
 		System.out.println("---- Exercise 8* ----");
-                executeStringEquation(inputEquation);
+                result = executeStringEquation(inputEquation);
 //		JavaSem02.executeStringEquation(inputEquation);
+                System.out.println("Result in main: "+result);
 
                 //Exercise 9*
                 System.out.println("---- Exercise 9* ----");
@@ -118,8 +113,8 @@ public class JavaSem02 {
 	
 	
 	static double positionCalc(double gravity, double initialVelocity, double initialPosition, double fallingTime) {
-		double position = 0;
-		position = (0.5 * gravity * Math.pow(fallingTime, 2)) + (initialVelocity	* fallingTime) + initialPosition;
+		double position = 0.0;
+		position = (0.5 * gravity * Math.pow(fallingTime, 2)) + (initialVelocity * fallingTime) + initialPosition;
 		return position;
 	}
 	
@@ -132,11 +127,6 @@ public class JavaSem02 {
 				System.out.println(_names[i] + " " + _times[i]);
 			}
 		}
-		
-		
-		//for(int i = 0; i< marathonists.length(); i++) {
-		//	System.out.println();
-		//}
 	}
 	
 	static void createMarathonists(String[] _names, int[] _times) {
@@ -144,27 +134,11 @@ public class JavaSem02 {
                     
 			for(int i = 0; i < _times.length; i++) {
                             
-//                            javasem02.Marathonist _marathonist = new javasem02.Marathonist(_names[i], _times[i]);
                             Marathonist _marathonist = new Marathonist(_names[i], _times[i]);
-//                            System.out.println(_marathonist);
-                            marathonists.add(_marathonist); //seit met ara error
+                            marathonists.add(_marathonist);
                             
 			}	
-	}
-                
-//                if(_names.length == _times.length)
-//		{
-//			for (int i = 0; i < _times.length; i++) {
-//				
-//				int value = 10;
-//				String name = _names[i];
-//				int time = _times[i];
-//						
-//				javasem02.Marathonist _marathonist = new javasem02.Marathonist(name, time);
-//				marathonists.add(_marathonist);
-//			}
-//			
-//		}
+                }
 	}
 	
 	//Exercise 3
@@ -240,17 +214,17 @@ public class JavaSem02 {
 				return newArray;
 			}
 			
-			static double getProduct(double[][] matrix, int i, int j) {
-				double result = 0.0;
-				for (int k = 0; k < matrix.length; k++) {
-                                    for (int l = 0; l < matrix.length; l++) {
-                                        if(k == i && l == j) {
-                                            result = matrix[k][l];
-                                        }
-                                    }
-                                }
-				return result;
-			}
+	static double getProduct(double[][] matrix, int i, int j) {
+            double result = 0.0;
+            for (int k = 0; k < matrix.length; k++) {
+                for (int l = 0; l < matrix.length; l++) {
+                    if(k == i && l == j) {
+                        result = matrix[k][l];
+                    }
+                }
+            }
+            return result;
+	}
 
 	
 	//Exercise 5
@@ -339,41 +313,84 @@ public class JavaSem02 {
                         }
 			return result;
 				
-	// Mans kods
-//				String pascTriangle = "";
-//				int[][] pascArray = new int[10][];
-//				int n, r;
-//				for (int i = 0; i <= level; i++) {
-//					n = 1;
-//					r = i + 1;
-//					for (int j = 0; j <= i; j++) {
-//						if(j>0){
-//						n = n * (r - j) / j;
-//						}
-//						pascArray[i][j] = n;
-//					}
-//				}
-//				
-//				for (int i = 0; i < pascArray.length; i++) {
-//					pascTriangle = String.valueOf(pascArray[level][i]);
-//				}
-//				return pascTriangle;
-				
 }
 			
 	// Exercise 8*
 			static double executeStringEquation(String inputEquation) {
 				double result = 0.0;
+                                int e = 0;
+                                int nexte = 0;
+                                String tempNum = "";
 				
-				char[] operators = new char[inputEquation.length()];
-				for (int i = 0; i < operators.length; i++) {
-					System.out.print(operators[i] + " ");
-				}
-				
+                                String newEquation = new String();
+                                for(int i=0;i<inputEquation.length();i++) {
+                                            if(inputEquation.charAt(i) == 32){
+
+                                            }
+                                            else
+                                            {
+                                                newEquation = newEquation + inputEquation.charAt(i);
+                                            }
+                                        }
+                                        System.out.println("Ar iznemtiam atstarpem: "+newEquation);
+				char[] charEquation = new char[newEquation.length()];
+                                charEquation = newEquation.toCharArray();
+                                int[] numbers = new int[newEquation.length()/2 + newEquation.length()%2];
+                                char[] operators = new char[newEquation.length() - numbers.length - 1];
+                                
+                                System.out.println("charEquation.length(): "+(charEquation.length));
+                                System.out.println("number.length: "+numbers.length+" operators.length:"+operators.length);
+//                                System.out.println(inputEquation);
+                                System.out.println(charEquation);
+                                
+				for (int i = 0; i <= numbers.length; i++) {
+//					System.out.print(charEquation[i]);
+//                                      System.out.println(i%2);
+                                        e = Character.getNumericValue(charEquation[i]);
+                                        nexte = Character.getNumericValue(charEquation[i+1]);
+                                        System.out.println(e);
+                                        
+                                            if(e != -1 && nexte != -1) {
+    //                                            System.out.println(e);
+                                                tempNum = Integer.toString(e) + Integer.toString(nexte);
+                                                e = Integer.parseInt(tempNum);
+                                                System.out.println("string to int: " + e);
+                                                numbers[i] = e;
+
+                                            } else if (e != -1) {
+                                                numbers[i] = e;
+                                            } else {
+                                                
+                                            }			
+                                }
                                 System.out.println("\n");
+                                System.out.println("numbers: ");
+                                for (int i = 0; i < numbers.length; i++) {
+                                    System.out.println(numbers[i]);
+                                }
+//                                System.out.println("operators: ");
+//                                for (int i = 0; i < operators.length; i++) {
+//                                    System.out.println(operators[i]);
+//                                }
+                                for (int i = 0; i < numbers.length + operators.length; i++){
+                                    switch (operators[i]){
+                                        case '+' :
+                                            result = result + numbers[i] + numbers[i+1];
+                                            break;
+                                        case '-':
+                                            result= result +numbers[i] - numbers[i+1];
+                                            break;
+                                        case '/' :
+                                            result= result +numbers[i] / numbers[i+1];
+                                            break;
+                                        case '*':
+                                            result= result +numbers[i] * numbers[i+1];
+                                            break;
+
+                                    }
+                                }
 				return result;
 			}
-	
 }
 
 class Marathonist
